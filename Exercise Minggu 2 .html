@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXERCISE M02</title>
+    <style>
+
+        body{
+            background-color: blue;
+            text-align: center; 
+        }
+        h1, p {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Punny Web</h1>
+    <p id="artist"></p>
+    <button id="title"></button>
+    <p id="lyric"></p>
+    <p id="count">Jumlah Kata : </p>
+    <script>
+    let lirik_lagu = {
+        status: true, 
+        data : {
+            artist: "Westlife", 
+            songTitle: "I Have A Dream", 
+            songLyrics: "I have a dream, a song to sing\nTo help me cope with anything\nIf you see the wonder (wonder) of a fairy tale\nYou can take the future even if you fail"
+        }
+    }
+    let artist = document.getElementById("artist")
+    let title = document.getElementById("title")
+    let lyric = document.getElementById("lyric")
+    let count = document.getElementById("count")
+
+    let title_artist = lirik_lagu.data.artist
+    let song_title = lirik_lagu.data.songTitle
+    let song_lyric = lirik_lagu.data.songLyrics
+    let data_lyric = lirik_lagu.data.songLyrics.replaceAll("\n", "<br>") 
+    let count_sentences = lirik_lagu.data.songLyrics.split(" ").length + lirik_lagu.data.songLyrics.split("\n").length - 1
+
+    artist.innerHTML = artist.innerHTML + title_artist
+    title.innerHTML = title.innerHTML + song_title
+    lyric.innerHTML = lyric.innerHTML + data_lyric
+    count.innerHTML = count.innerHTML + count_sentences
+    </script>
+</body>
+</html>
